@@ -5,7 +5,7 @@ use Alias;
 use base qw(Watchdog::Util);
 use vars qw($VERSION $NAME $HOST $PORT);
 
-$VERSION = '0.07';
+$VERSION = '0.08';
 
 =head1 NAME
 
@@ -76,6 +76,8 @@ sub id() {
 #------------------------------------------------------------------------------
 
 =head1 AUTHOR
+
+new Maintainer: Clemens Gesell E<lt>clemens.gesell@vegatron.orgE<gt> 
 
 Paul Sharpe E<lt>paul@miraclefish.comE<gt>
 

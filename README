@@ -11,7 +11,7 @@ Watchdog classes and SNMP.
   bin/partition.monitor (SNMP)
   bin/swap.monitor (SNMP) 
 
-
+new Maintainer: Clemens Gesell clemens.gesell@vegatron.org
 Paul Sharpe <paul@miraclefish.com>
 
 Prerequisites
@@ -35,6 +35,11 @@ To Do
 
 History
 =======
+05-Jul-2003               Clemens Gesell          <clemens.gesell@vegatron.org>
+-------------------------------------------------------------------------------
+Release 0.08
+BUG FIX in Base.pm
+
 27-Jan-1999               Paul Sharpe                    <paul@miraclefish.com>
 -------------------------------------------------------------------------------
 Release 0.07
