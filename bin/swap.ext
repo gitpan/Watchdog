@@ -1,15 +1,20 @@
 #!/usr/local/bin/perl
-# Extension to UCSD SNMP agent to monitor swap space
-# To enable extension add 'exec swap /path/to/swap.ext' to snmpd.conf
+# $Id: swap.ext,v 1.3 1998/10/16 09:26:18 paul Exp $
 
-#  Copyright (c) 1998 Paul Sharpe. England.  All rights
-#  reserved.  This program is free software; you can
-#  redistribute it and/or modify it under the same terms as
-#  Perl itself.
+# Copyright (c) 1997,1998 Paul Sharpe. England.  All rights reserved.
+# This program is free software; you can redistribute it and/or modify
+# it under the same terms as Perl itself.
+
+# swap.ext is an extension to the UCSD snmp agent for monitoring
+# in-use swap space on a variety of Unix platforms.
+
+# To enable the extension add the following line to snmpd.conf
+# exec swap /path/to/swap.ext
 
 %prog = (
 	 'SunOS' => '/usr/sbin/swap -l',
 	 'Linux' => '/usr/bin/free',
+	 'OSF1'  => '/usr/sbin/swapon -s',
 	);
 
 chop($system = `uname -s`);
@@ -28,6 +33,14 @@ if ( $system =~ /^Linux$/ ) {
     if (  /^\/dev/ ) {
       my($total,$used) = /(\d+)\s+(\d+)$/;
       printf "%d", $used / $total * 100;
+      last;
+    }
+  } 
+} elsif ( $system =~ /^OSF1$/ ) {
+  while ( <P> ) {
+    if ( /^\s+In-use space:/ ) {
+      /\(\s*(\d+)%\)$/;
+      printf $1;
       last;
     }
   } 

@@ -38,7 +38,7 @@ return 1 and output the hostnames that failed and the percentage of
 the swap in use.  If all hosts meet the utilisation criteria 0 is
 returned.
 
-The swap space statistics must be collected from an extenstion to the
+The swap space statistics must be collected from an extension to the
 SNMP agent named 'swap' which returns the percentage of swap space in
 use.
 
@@ -49,6 +49,7 @@ didn't seem to be one which worked for Linux and Solaris.
 
 =head1 SEE ALSO
 
+F<swap.ext> - snmp agent extenstion for monitoring swap space
 I<http://consult.ml.org/~trockij/mon/>
 I<http://www.ece.ucdavis.edu/ucd-snmp/>
 
