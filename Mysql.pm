@@ -94,8 +94,8 @@ sub is_alive() {
   print STDERR "\$DB = $DB\n" if $DEBUG;
 
   # driver should use the Unix domain socket if $PORT is undef
-  my $dsn = "DBI:mysql:database=$DB;$HOST";
-  $dsn .= ";$PORT" if defined($PORT);
+  my $dsn = "DBI:mysql:database=$DB;host=$HOST";
+  $dsn .= ";port=$PORT" if defined($PORT);
   print STDERR "\$dsn = $dsn\n" if $DEBUG;
   my $dbh = DBI->connect($dsn,undef,undef,{ PrintError => 0 } );
   

@@ -35,6 +35,14 @@ To Do
 
 History
 =======
+27-Jan-1999               Paul Sharpe                    <paul@miraclefish.com>
+-------------------------------------------------------------------------------
+Release 0.07
+
+BUG FIXES
+  Mysql::
+    - Minor bug in specifying data source name in is_alive()
+
 30-Nov-1998               Paul Sharpe                    <paul@miraclefish.com>
 -------------------------------------------------------------------------------
 Release 0.06

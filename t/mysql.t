@@ -16,7 +16,7 @@ BEGIN {
 use Watchdog::Mysql;
 
 my @service = ( new Watchdog::Mysql,
-		new Watchdog::Mysql(undef,'www.tcx.se'),
+		new Watchdog::Mysql(undef,'contentdev'),
 	      );
 
 for ( @service ) {
