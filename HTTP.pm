@@ -5,9 +5,9 @@ use Alias;
 use base qw(Watchdog::Base);
 use HTTP::Request;
 use LWP::UserAgent;
-use vars qw($VERSION $HOST $PORT);
+use vars qw($VERSION $HOST $PORT $FILE);
 
-$VERSION = '0.01';
+$VERSION = '0.02';
 
 =head1 NAME
 
@@ -16,7 +16,7 @@ Watchdog::HTTP - Test status of HTTP service
 =head1 SYNOPSIS
 
   use Watchdog::HTTP;
-  $h = new Watchdog::HTTP($name,$host,$port);
+  $h = new Watchdog::HTTP($name,$host,$port,$file);
   print $h->id, $h->is_alive ? ' is alive' : ' is dead', "\n";
 
 =head1 DESCRIPTION
@@ -25,11 +25,11 @@ B<Watchdog::HTTP> is an extension for monitoring an HTTP server.
 
 =cut
 
-my($name,$port) = ('httpd',80);
+my($name,$port,$file) = ('httpd',80,'');
 
 =head1 CLASS METHODS
 
-=head2 new($name,$host,$port)
+=head2 new($name,$host,$port,$file)
 
 Returns a new B<Watchdog::HTTP> object.  I<$name> is a string which
 will identify the service to a human (default is 'httpd').  I<$host>
@@ -54,13 +54,13 @@ sub new($$$) {
 =head2 is_alive()
 
 Returns true if an HTTP B<GET> method succeeds for the URL
-B<http://$host:$port/> or false if it doesn't.
+B<http://$host:$port/$file> or false if it doesn't.
 
 =cut
 
 sub is_alive() {
   my $self = attr shift;
-  my $request  = new HTTP::Request(GET => "http://$HOST:$PORT/");
+  my $request  = new HTTP::Request(GET => "http://$HOST:$PORT/$FILE");
   my $ua       = new LWP::UserAgent;
   my $response = $ua->request($request);
   return $response->is_success ? 1 : 0;

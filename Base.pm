@@ -3,9 +3,9 @@ package Watchdog::Base;
 use strict;
 use Alias;
 use base qw(Watchdog::Util);
-use vars qw($VERSION $NAME $HOST $PORT);
+use vars qw($VERSION $NAME $HOST $PORT $FILE);
 
-$VERSION = '0.08';
+$VERSION = '0.09';
 
 =head1 NAME
 
@@ -25,11 +25,12 @@ my %fields = (
 	      NAME    => undef,
 	      HOST    => 'localhost',
 	      PORT    => undef,
+	      FILE    => '',
 );
 
 =head1 CLASS METHODS
 
-=head2 new($name,$host,$port)
+=head2 new($name,$host,$port,$file)
 
 Returns a new B<Watchdog::Base> object.  I<$name> is a string which
 will identify the service to a human.  I<$host> is the name of the
@@ -45,12 +46,12 @@ sub new($$$) {
   my $self  = bless { _PERMITTED => \%fields, %fields, },$class;
   attr $self;
 
-  print STDERR "Watchdog::Base::new() $NAME $HOST $PORT\n" if $DEBUG;
+  print STDERR "Watchdog::Base::new() $NAME $HOST $PORT $FILE\n" if $DEBUG;
   my $arg;
-  for (\$NAME,\$HOST,\$PORT) {
+  for (\$NAME,\$HOST,\$PORT,\$FILE) {
     $$_ = $arg if $arg = shift;
   }
-  print STDERR "Watchdog::Base::new() $NAME $HOST $PORT\n" if $DEBUG;
+  print STDERR "Watchdog::Base::new() $NAME $HOST $PORT $FILE\n" if $DEBUG;
 
   return $self;
 }
@@ -71,6 +72,7 @@ sub id() {
   my $self = attr shift;
   my $id = "$NAME\@$HOST";
   $id .= ":$PORT" if defined($PORT);
+  $id .= "/$FILE" if ($FILE eq '');
   return $id;
 }
 
