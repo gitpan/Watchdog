@@ -37,8 +37,9 @@ History
 =======
 05-Jul-2003               Clemens Gesell          <clemens.gesell@vegatron.org>
 -------------------------------------------------------------------------------
-Release 0.08
-BUG FIX in Base.pm
+Release 0.07_1
+    - BUG FIX in Base.pm
+    - new Maintainer
 
 27-Jan-1999               Paul Sharpe                    <paul@miraclefish.com>
 -------------------------------------------------------------------------------
