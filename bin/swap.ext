@@ -1,5 +1,5 @@
 #!/usr/local/bin/perl
-# $Id: swap.ext,v 1.3 1998/10/16 09:26:18 paul Exp $
+# $Id: swap.ext,v 1.4 1998/11/30 14:58:22 paul Exp $
 
 # Copyright (c) 1997,1998 Paul Sharpe. England.  All rights reserved.
 # This program is free software; you can redistribute it and/or modify
@@ -31,8 +31,8 @@ if ( $system =~ /^Linux$/ ) {
 } elsif ( $system =~ /^SunOS$/ ) {
   while ( <P> ) {
     if (  /^\/dev/ ) {
-      my($total,$used) = /(\d+)\s+(\d+)$/;
-      printf "%d", $used / $total * 100;
+      my($total,$free) = /(\d+)\s+(\d+)$/;
+      printf "%d", ($total - $free) / $total * 100;
       last;
     }
   } 

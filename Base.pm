@@ -5,7 +5,7 @@ use Alias;
 use base qw(Watchdog::Util);
 use vars qw($VERSION $NAME $HOST $PORT);
 
-$VERSION = '0.05';
+$VERSION = '0.06';
 
 =head1 NAME
 

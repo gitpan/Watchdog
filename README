@@ -35,14 +35,18 @@ To Do
 
 History
 =======
+30-Nov-1998               Paul Sharpe                    <paul@miraclefish.com>
+-------------------------------------------------------------------------------
+Release 0.06
+- Bug fix to swap.ext
 
-16-Oct-1998               Paul Sharpe                     <paul@miraclefish.com>
---------------------------------------------------------------------------------
+16-Oct-1998               Paul Sharpe                    <paul@miraclefish.com>
+-------------------------------------------------------------------------------
 Release 0.05
 - Added OSF1 support to swap.ext
 
-Oct-1998                 Paul Sharpe                      <paul@miraclefish.com>
---------------------------------------------------------------------------------
+Oct-1998                 Paul Sharpe                     <paul@miraclefish.com>
+-------------------------------------------------------------------------------
 Release 0.04
 - Classes renamed (suggested by Tim Bunce).
     Watchdog::Service => Watchdog::Process
@@ -54,17 +58,17 @@ Release 0.04
 - Added 'Mon' monitors
 - t/{mysql.t,process.t} now skipped if prerequisites not installed
 
-24-Sep-1998                 Paul Sharpe                   <paul@miraclefish.com>
---------------------------------------------------------------------------------
+24-Sep-1998                 Paul Sharpe                  <paul@miraclefish.com>
+-------------------------------------------------------------------------------
 Release 0.03
 - Bug fixes.
 
-4-Sep-1998                  Paul Sharpe                   <paul@miraclefish.com>
---------------------------------------------------------------------------------
+4-Sep-1998                  Paul Sharpe                  <paul@miraclefish.com>
+-------------------------------------------------------------------------------
 Release 0.02
 - Corrected bug in Watchdog::Service SYNOPSIS.
 
-3-Sep-1998                  Paul Sharpe                   <paul@miraclefish.com>
---------------------------------------------------------------------------------
+3-Sep-1998                  Paul Sharpe                  <paul@miraclefish.com>
+-------------------------------------------------------------------------------
 Release 0.01
 - Initial release.
